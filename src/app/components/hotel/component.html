@@ -1,0 +1,49 @@
+<h2>Hotel Details</h2>
+
+<div class="panel panel-default" *ngIf="hotel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            {{ hotel.HotelName }} ({{ hotel.StarRating }} stars)
+        </h3>
+    </div>
+
+    <div class="panel-body">
+        <img *ngFor="let image of hotel.Images" [src]="image" class="thumb center-block" />
+    </div>
+</div>
+
+<div class="panel panel-default" *ngIf="hotel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Location
+        </h3>
+    </div>
+
+    <div class="panel-body">
+        <sebm-google-map [latitude]="hotel.Latitude" [longitude]="hotel.Longitude" [zoom]="13">
+            <sebm-google-map-marker [latitude]="hotel.Latitude" [longitude]="hotel.Longitude"></sebm-google-map-marker>
+        </sebm-google-map>
+    </div>
+
+
+    <div class="panel-footer">
+        <p *ngFor="let addressLine of hotel.AddressLines">{{ addressLine }}</p>
+    </div>
+
+</div>
+
+<div class="panel panel-default" *ngIf="hotel">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Description
+        </h3>
+    </div>
+
+    <div class="panel-body" [innerHTML]="hotel.HotelDescription"></div>
+
+
+    <div class="panel-footer">
+        <a class="btn btn-default" routerLink="/">Back to search results</a>
+    </div>
+
+</div>
