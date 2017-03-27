@@ -21,8 +21,12 @@ export class SearchResultsComponent implements OnInit{
 
   constructor(private searchService: SearchService) {}
 
+  /**
+   * Retrieve search results, apply initial filters (no meal requirements)
+   * 
+   * @return Promise
+   */
   ngOnInit(): Promise<any> {
-    // retrieve search results
     let scope = this;
     return this.searchService.doSearch().then(function(response) {
       scope.results = response.HotelPricingSummaries;
@@ -30,7 +34,11 @@ export class SearchResultsComponent implements OnInit{
     });
   }
 
-  
+  /**
+   * Apply current filter options to retrieved search results
+   * 
+   * @return void 
+   **/  
   applyFilters(): void {
       this.filtered = new SearchFilterPipe().transform(this.results, this.filters);
   }   

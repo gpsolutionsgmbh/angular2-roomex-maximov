@@ -9,9 +9,13 @@ import 'rxjs/add/operator/toPromise';
 export class HotelService {
     
     constructor(private http: Http) {};
-
     private apiUrl = 'http://roomex.mockable.io/hotel/';
-    
+
+    /**
+     * Retrieves hotel info, by ID.
+     * 
+     * @return Promise
+     **/    
     getHotel(id: number): Promise<Hotel> {
         return this.http.get(this.apiUrl + id)
             .toPromise()

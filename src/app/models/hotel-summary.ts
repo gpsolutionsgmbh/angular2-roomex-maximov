@@ -1,5 +1,6 @@
 import { LatLong } from './lat-long';
 
+// Hotel Summary class, to describe individual hotel in search results
 export class HotelSummary {
     HotelId: number;
     HotelName: string;

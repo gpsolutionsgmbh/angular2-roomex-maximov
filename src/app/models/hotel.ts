@@ -1,3 +1,6 @@
+/**
+ * Hotel class, as per API response structure
+ */
 export class Hotel {
     HotelId: number;
     HotelCode: string;

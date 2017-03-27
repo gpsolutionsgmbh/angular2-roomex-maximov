@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Hotel } from '../../models/hotel';
-
 import { HotelService } from '../../services/hotel.service';
 
 import {
@@ -24,6 +23,11 @@ export class HotelComponent{
 
   constructor(private hotelService: HotelService, private route: ActivatedRoute) {}
 
+  /**
+   * Retrieve hotel data, by id supplied
+   * 
+   * @return Promise
+   */
   ngOnInit(): Promise<any> {
     return this.hotelService.getHotel(+this.route.snapshot.params['id']).then(response => this.hotel = response);
   }  

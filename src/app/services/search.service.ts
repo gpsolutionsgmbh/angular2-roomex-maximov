@@ -9,10 +9,13 @@ import 'rxjs/add/operator/toPromise';
 export class SearchService {
     
     constructor(private http: Http) {};
-
     private apiUrl = 'http://roomex.mockable.io/locationSearch';
     
-    // retrieves spot details, by id provided
+    /**
+     * Retrieves search results
+     * 
+     * @return Promise
+     */
     doSearch(): Promise<Search> {
         return this.http.get(this.apiUrl)
             .toPromise()

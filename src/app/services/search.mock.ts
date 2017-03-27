@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Search } from '../models/search';
 
+/**
+ * Mock for SearchService, for use in unit-tests
+ */
 @Injectable()
 export class SearchMock {
     
     constructor() {};
 
-    // retrieves spot details, by id provided
     doSearch(): Promise<Search> {
         
         return new Promise((resolve, reject) => {

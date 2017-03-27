@@ -1,10 +1,10 @@
 import { Injectable, Pipe, PipeTransform } from '@angular/core';
 import { FilterOptions } from '../models/filter-options';
 
-@Pipe({
- name: 'searchfilter'
-})
-
+/**
+ * Custom pipe to apply selected search filters to unfiltered search results
+ */
+@Pipe({ name: 'searchfilter' })
 @Injectable()
 export class SearchFilterPipe implements PipeTransform {
  transform(items: any[], flags: FilterOptions): any[] {
